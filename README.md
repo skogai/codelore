@@ -10,7 +10,8 @@ Every piece of documentation exists in two flavors:
 
 ## Where the docs live
 
-All documentation is stored under `~/.codelore` (next to `.claude`, `.gemini`, ...):
+All documentation is stored under `~/.codelore` by default (next to `.claude`, `.gemini`, ...) —
+see [Configuration](#configuration) to change the location:
 
 ```
 ~/.codelore/
@@ -44,6 +45,7 @@ supplies the inner markdown body.
 | `define_chapter` | Create/update a chapter (e.g. `angular/pages`) with a description. |
 | `define_topic` | Create/update a topic (e.g. `angular/pages/grid-page`); auto-creates empty `internal.md` + `usage.md`. |
 | `get_project_map` | **The reading entry point.** One call returns the whole table of contents: categories, chapters, topics, descriptions, and which docs are filled. |
+| `search_docs` | Full-text search across all doc bodies (fuzzy + prefix matching, relevance-ranked). Returns the best-matching topics with a snippet each; optionally scoped to one project. |
 | `write_doc` | Write the `internal` or `usage` body of a topic (`replace` or `append`). |
 | `read_doc` | Read exactly one topic's `internal`, `usage`, or `both` docs. |
 
@@ -61,6 +63,11 @@ supplies the inner markdown body.
 
 1. `get_project_map("cap")` → cheap table of contents
 2. `read_doc("cap", "angular", "pages", "grid-page", "usage")` → only the doc that matters
+
+Or, when you don't know which topic covers something:
+
+1. `search_docs("grid column resize")` → ranked matches with snippets
+2. `read_doc(...)` the best hit
 
 ## Setup
 
@@ -84,7 +91,24 @@ Or in any `.mcp.json` / MCP client config:
 }
 ```
 
-Set `CODELORE_ROOT` to override the storage location (useful for tests).
+## Configuration
+
+By default docs are stored under `~/.codelore`. To store them somewhere else, pass the `--root`
+flag in the MCP config's `args`:
+
+```json
+{
+  "mcpServers": {
+    "codelore": {
+      "command": "npx",
+      "args": ["-y", "codelore-mcp", "--root", "D:\\team-docs\\.codelore"]
+    }
+  }
+}
+```
+
+Resolution order: `--root <path>` (or `--root=<path>`) → `CODELORE_ROOT` environment variable →
+`~/.codelore`. A leading `~` in the path is expanded to your home directory.
 
 ## Development
 

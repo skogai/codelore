@@ -1,6 +1,6 @@
 {
   "name": "codelore-mcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "MCP server that maintains structured, two-perspective (internal/usage) code documentation so LLMs read summaries instead of whole codebases.",
   "keywords": [
     "mcp",
@@ -11,6 +11,14 @@
   ],
   "license": "MIT",
   "author": "Paul Benchea",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulBenchea/codelore.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PaulBenchea/codelore/issues"
+  },
+  "homepage": "https://github.com/PaulBenchea/codelore#readme",
   "type": "module",
   "bin": {
     "codelore-mcp": "dist/index.js"
@@ -18,7 +26,9 @@
   "main": "dist/index.js",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
@@ -31,6 +41,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.0",
+    "minisearch": "^7.2.0",
     "zod": "^3.25.0"
   },
   "devDependencies": {
