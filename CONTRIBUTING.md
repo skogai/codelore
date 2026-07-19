@@ -20,14 +20,14 @@ claude mcp add --scope user codelore -- node <repo>/dist/index.js --root <some-t
 ```
 
 Use `--root` (or the `CODELORE_ROOT` env var) to point the server at a throwaway directory so you
-don't touch your real `~/.codelore` docs while developing.
+don't touch your real `~/.skogai` docs while developing.
 
 ## Project layout
 
 | File | Role |
 | --- | --- |
 | `src/index.ts` | Entry point — wiring and startup only. |
-| `src/config.ts` | Storage root resolution (`--root` flag → `CODELORE_ROOT` → `~/.codelore`). |
+| `src/config.ts` | Storage root resolution (`--root` flag → `CODELORE_ROOT` → `~/.skogai`). |
 | `src/server.ts` | MCP server and tool registrations. |
 | `src/operations.ts` | The public operations behind the tools. |
 | `src/search.ts` | Full-text search (MiniSearch). |

@@ -10,11 +10,11 @@ Every piece of documentation exists in two flavors:
 
 ## Where the docs live
 
-All documentation is stored under `~/.codelore` by default (next to `.claude`, `.gemini`, ...) —
+All documentation is stored under `~/.skogai` by default (next to `.claude`, `.gemini`, ...) —
 see [Configuration](#configuration) to change the location:
 
 ```
-~/.codelore/
+~/.skogai/
 ├── INDEX.md                  # list of registered projects
 └── <project>/                # e.g. cap
     ├── INDEX.md              # categories of the project
@@ -93,7 +93,7 @@ Or in any `.mcp.json` / MCP client config:
 
 ## Configuration
 
-By default docs are stored under `~/.codelore`. To store them somewhere else, pass the `--root`
+By default docs are stored under `~/.skogai`. To store them somewhere else, pass the `--root`
 flag in the MCP config's `args`:
 
 ```json
@@ -108,7 +108,7 @@ flag in the MCP config's `args`:
 ```
 
 Resolution order: `--root <path>` (or `--root=<path>`) → `CODELORE_ROOT` environment variable →
-`~/.codelore`. A leading `~` in the path is expanded to your home directory.
+`~/.skogai`. A leading `~` in the path is expanded to your home directory.
 
 ## Development
 
