@@ -24,4 +24,4 @@ What you expected to happen instead.
 - MCP client: [e.g. Claude Code, Claude Desktop]
 
 **Additional context**
-Server stderr output, relevant `~/.codelore` layout, etc.
+Server stderr output, relevant `~/.skogai` layout, etc.

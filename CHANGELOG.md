@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Default storage root moved from `~/.codelore` to `~/.skogai`. The `--root` flag and the
+  `CODELORE_ROOT` environment variable still take precedence and are unchanged.
+
 ## [0.3.0] - 2026-07-17
 
 ### Added

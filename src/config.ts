@@ -7,7 +7,7 @@ import * as os from "node:os";
  *   1. `--root <path>` (or `--root=<path>`) CLI flag — set it in the MCP
  *      config's `args`, e.g. `"args": ["-y", "codelore-mcp", "--root", "D:\\docs"]`
  *   2. `CODELORE_ROOT` environment variable
- *   3. `~/.codelore` (default, next to .claude, .gemini, ...)
+ *   3. `~/.skogai` (default, next to .claude, .gemini, ...)
  */
 
 function expandHome(p: string): string {
@@ -24,7 +24,7 @@ function resolveRoot(): string {
       ? argv[flagIndex + 1]
       : argv.find((a) => a.startsWith("--root="))?.slice("--root=".length);
   const chosen = fromArg || process.env.CODELORE_ROOT;
-  return chosen ? path.resolve(expandHome(chosen)) : path.join(os.homedir(), ".codelore");
+  return chosen ? path.resolve(expandHome(chosen)) : path.join(os.homedir(), ".skogai");
 }
 
 export const ROOT = resolveRoot();
